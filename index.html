@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SensoLab — Prototipo de Panelistas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0b1416;
+        --ink-2: #00232a;
+        --teal: #00e0c8;
+        --orange: #ff5a1f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body {
+        background:
+          radial-gradient(120% 80% at 78% 8%, #06343b 0%, rgba(6, 52, 59, 0) 60%),
+          var(--ink);
+        color: #fff;
+        font-family: Inter, "Segoe UI", system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        padding: 28px 20px;
+        overflow: hidden;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .brand i {
+        width: 10px;
+        height: 10px;
+        background: var(--orange);
+        display: block;
+      }
+
+      h1 {
+        margin: 10px 0 0;
+        font-size: 27px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+      }
+
+      h1 span {
+        color: var(--teal);
+      }
+
+      /* ---------- phone ---------- */
+      .stage {
+        display: flex;
+        justify-content: center;
+      }
+
+      .phone {
+        width: 418px;
+        height: 872px;
+        padding: 14px;
+        border-radius: 54px;
+        background: linear-gradient(155deg, #16383f 0%, #0a1c21 55%, #05100f 100%);
+        border: 1px solid rgba(0, 224, 200, 0.25);
+        box-shadow:
+          0 50px 100px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(0, 0, 0, 0.5) inset;
+        position: relative;
+        transform-origin: top center;
+      }
+
+      .screen {
+        width: 390px;
+        height: 844px;
+        border-radius: 42px;
+        overflow: hidden;
+        background: #f8f9fa;
+        position: relative;
+      }
+
+      iframe {
+        width: 390px;
+        height: 844px;
+        border: 0;
+        display: block;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 520px;
+        line-height: 1.5;
+      }
+
+      kbd {
+        font: inherit;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      /* En pantallas angostas el visor sobra: el script manda directo a la página. */
+      @media (max-width: 700px) {
+        header,
+        footer {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand"><i></i>SensoLab</div>
+      <h1>Prototipo de <span>Panelistas</span></h1>
+    </header>
+
+    <div class="stage">
+      <div class="phone" id="phone">
+        <div class="screen">
+          <iframe id="screen" title="Prototipo SensoLab" src="home.html"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Navega con la barra inferior del teléfono: <kbd>Tablero</kbd>, <kbd>Catálogo</kbd>,
+      <kbd>Historial</kbd> y <kbd>Confianza</kbd>.
+    </footer>
+
+    <script>
+      (function () {
+        // Solo estas cuatro pantallas pueden cargarse en el marco.
+        var ALLOWED = ["home.html", "catalogo.html", "acreditaciones.html", "user.html"];
+
+        function requested() {
+          var m = /[?&]p=([^&]+)/.exec(location.search);
+          var name = m ? decodeURIComponent(m[1]).split("/").pop().toLowerCase() : "";
+          return ALLOWED.indexOf(name) !== -1 ? name : "home.html";
+        }
+
+        var page = requested();
+
+        // En un teléfono real el marco estorba: se abre la página a pantalla completa.
+        if (window.innerWidth < 700) {
+          location.replace(page);
+          return;
+        }
+
+        document.getElementById("screen").src = page;
+
+        // El teléfono se encoge para caber en pantallas de poca altura.
+        var phone = document.getElementById("phone");
+        var stage = phone.parentNode;
+
+        function fit() {
+          var chrome = 200; // cabecera + pie + separaciones
+          var avail = window.innerHeight - chrome;
+          var scale = Math.min(1, avail / 872);
+          scale = Math.max(0.5, scale);
+          phone.style.transform = "scale(" + scale + ")";
+          stage.style.height = Math.round(872 * scale) + "px";
+        }
+
+        fit();
+        window.addEventListener("resize", fit);
+      })();
+    </script>
+  </body>
+</html>

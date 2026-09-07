@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Acto 4 — Cierre</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: Inter, "Segoe UI", system-ui, sans-serif;
+          color: #ffffff;
+          overflow: hidden;
+        }
+
+        #c-field {
+          position: absolute;
+          left: -12%;
+          top: 0;
+          width: 132%;
+          height: 100%;
+          background: #0b1416;
+          clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+          z-index: 0;
+        }
+
+        #c-slab-a {
+          position: absolute;
+          left: -240px;
+          top: -180px;
+          width: 900px;
+          height: 1440px;
+          background: #ff5a1f;
+          clip-path: polygon(0 0, 100% 0, 68% 100%, 0 100%);
+          z-index: 0;
+        }
+
+        #c-slab-b {
+          position: absolute;
+          left: 1360px;
+          top: -180px;
+          width: 860px;
+          height: 1440px;
+          background: #00e0c8;
+          clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%);
+          z-index: 0;
+        }
+
+        #c-wrap {
+          position: absolute;
+          left: 430px;
+          top: 288px;
+          width: 1060px;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        #c-logo {
+          width: 680px;
+          height: auto;
+          display: block;
+        }
+
+        #c-rule {
+          margin-top: 26px;
+          height: 6px;
+          width: 460px;
+          background: #ffffff;
+          transform-origin: center center;
+        }
+
+        #c-tag {
+          margin-top: 32px;
+          font-size: 48px;
+          font-weight: 900;
+          letter-spacing: -0.03em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+
+        #c-cta {
+          margin-top: 40px;
+          padding: 26px 54px;
+          background: #ffffff;
+          color: #0b1416;
+          font-size: 36px;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+        }
+
+        #c-foot {
+          margin-top: 34px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          font-size: 22px;
+          font-weight: 800;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.68);
+        }
+
+        .c-foot-sep {
+          width: 6px;
+          height: 6px;
+          background: #ff5a1f;
+        }
+      </style>
+
+      <div data-hf-id="hf-n3qp" id="root" data-composition-id="cierre" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-3kys" id="c-field" data-layout-allow-overflow="true"></div>
+        <div data-hf-id="hf-fm32" id="c-slab-a" data-layout-allow-overflow="true"></div>
+        <div data-hf-id="hf-9gd9" id="c-slab-b" data-layout-allow-overflow="true"></div>
+
+        <div data-hf-id="hf-3n15" id="c-wrap">
+          <img data-hf-id="hf-aso2" id="c-logo" src="assets/logo-sensolab.png" alt="SensoLab Solutions">
+          <div data-hf-id="hf-xj4f" id="c-rule"></div>
+          <div data-hf-id="hf-9h71" id="c-tag">Plataforma de Panelistas</div>
+          
+          <div data-hf-id="hf-theh" id="c-foot">
+            <span data-hf-id="hf-1i9p" id="c-foot-a">Registro</span>
+            <span data-hf-id="hf-uysa" class="c-foot-sep"></span>
+            <span data-hf-id="hf-eoxf" id="c-foot-b">Pruebas</span>
+            <span data-hf-id="hf-uxtq" class="c-foot-sep"></span>
+            <span data-hf-id="hf-z2lf" id="c-foot-c">Certificaciones</span>
+            <span data-hf-id="hf-vc4r" class="c-foot-sep"></span>
+            <span data-hf-id="hf-evu5" id="c-foot-d">Paneles</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const footItems = ["#c-foot-a", "#c-foot-b", "#c-foot-c", "#c-foot-d"];
+
+          gsap.set("#c-rule", { scaleX: 0 });
+
+          // 0.00 — ink field wipes in, brand slabs slam from both edges.
+          tl.fromTo(
+            "#c-field",
+            { xPercent: -120 },
+            { xPercent: 0, duration: 0.4, ease: "expo.out" },
+            0,
+          );
+          tl.fromTo(
+            "#c-slab-a",
+            { xPercent: -130 },
+            { xPercent: 0, duration: 0.6, ease: "expo.out" },
+            0.08,
+          );
+          tl.fromTo(
+            "#c-slab-b",
+            { xPercent: 130 },
+            { xPercent: 0, duration: 0.6, ease: "expo.out" },
+            0.08,
+          );
+
+          // 0.35 — the brand lands.
+          tl.fromTo(
+            "#c-logo",
+            { yPercent: 26, scale: 0.92, autoAlpha: 0 },
+            { yPercent: 0, scale: 1, autoAlpha: 1, duration: 0.6, ease: "expo.out" },
+            0.35,
+          );
+          tl.fromTo(
+            "#c-rule",
+            { scaleX: 0 },
+            { scaleX: 1, duration: 0.45, ease: "expo.out" },
+            0.85,
+          );
+          tl.fromTo(
+            "#c-tag",
+            { y: 22, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.4, ease: "expo.out" },
+            1.05,
+          );
+          tl.fromTo(
+            "#c-cta",
+            { y: 28, scale: 0.94, autoAlpha: 0 },
+            { y: 0, scale: 1, autoAlpha: 1, duration: 0.45, ease: "back.out(2)" },
+            1.45,
+          );
+          tl.fromTo(
+            footItems,
+            { y: 16, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.32, stagger: 0.09, ease: "expo.out" },
+            1.95,
+          );
+
+          // 2.6 — one breath on the CTA, then the slabs keep closing in to the last frame.
+          tl.to("#c-cta", { scale: 1.04, duration: 0.9, ease: "sine.inOut" }, 2.6);
+          tl.to("#c-cta", { scale: 1, duration: 0.9, ease: "sine.inOut" }, 3.5);
+          tl.fromTo("#c-slab-a", { x: 0 }, { x: 74, duration: 4.6, ease: "sine.inOut" }, 2.2);
+          tl.fromTo("#c-slab-b", { x: 0 }, { x: -74, duration: 4.6, ease: "sine.inOut" }, 2.2);
+          tl.fromTo("#c-wrap", { y: 0 }, { y: -12, duration: 4.6, ease: "sine.inOut" }, 2.2);
+
+          window.__timelines["cierre"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

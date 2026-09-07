@@ -1,0 +1,563 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SensoLab - Catálogo de Pruebas</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#002022",
+            "surface-variant": "#e1e3e4",
+            "error": "#ba1a1a",
+            "surface-tint": "#006970",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-on-surface": "#f0f1f2",
+            "on-tertiary-fixed": "#011e2d",
+            "inverse-primary": "#6fd6df",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#ffb781",
+            "on-tertiary-container": "#fcfcff",
+            "on-tertiary-fixed-variant": "#304a5a",
+            "background": "#f8f9fa",
+            "inverse-surface": "#2e3132",
+            "on-primary-fixed-variant": "#004f54",
+            "on-error": "#ffffff",
+            "surface-container": "#edeeef",
+            "on-background": "#191c1d",
+            "outline": "#6d797a",
+            "tertiary-fixed": "#cbe6fb",
+            "tertiary": "#455f70",
+            "surface": "#f8f9fa",
+            "primary-fixed-dim": "#6fd6df",
+            "error-container": "#ffdad6",
+            "primary": "#00666d",
+            "on-secondary-fixed-variant": "#6f3800",
+            "surface-dim": "#d9dadb",
+            "on-primary-container": "#f5feff",
+            "on-surface": "#191c1d",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#8df2fc",
+            "secondary-fixed": "#ffdcc4",
+            "outline-variant": "#bdc9ca",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#2f1400",
+            "on-surface-variant": "#3d494a",
+            "secondary": "#924c00",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#f8f9fa",
+            "tertiary-container": "#5e788a",
+            "surface-container-low": "#f3f4f5",
+            "primary-container": "#00818a",
+            "on-secondary-container": "#673400",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e7e8e9",
+            "tertiary-fixed-dim": "#afcade",
+            "secondary-container": "#fd9438"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-lg": "48px",
+            "unit": "8px",
+            "gutter": "24px",
+            "container-max-width": "1200px",
+            "margin-mobile": "16px",
+            "margin-desktop": "40px",
+            "stack-sm": "8px",
+            "stack-md": "24px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-card-shadow {
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+    }
+  </style>
+<!-- prototipo:shell -->
+<script>
+  /* Vista movil forzada: en escritorio la pantalla se abre dentro del marco de
+     telefono de index.html. Dentro del iframe no hace nada. */
+  (function () {
+    try {
+      if (window.self !== window.top) return;          // ya esta en el visor
+      if (window.innerWidth < 700) return;             // telefono real
+      var here = (location.pathname.split("/").pop() || "home.html").toLowerCase();
+      location.replace("index.html?p=" + encodeURIComponent(here));
+    } catch (e) {
+      /* si algo falla, la pagina se muestra tal cual */
+    }
+  })();
+</script>
+<!-- /prototipo:shell -->
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col justify-between antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Main Container constrained to Mobile viewport (~390px centered) -->
+<div class="w-full max-w-[420px] mx-auto min-h-screen flex flex-col bg-background relative shadow-xl">
+<!-- TopAppBar Component (from Shared JSON) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile py-unit">
+<!-- Leading / Brand Cluster -->
+<div class="flex items-center gap-2"><img src="assets/logo-sensolab-dark.png" alt="SensoLab Solutions" class="h-8 w-auto object-contain"></div>
+<!-- Trailing Actions (Notifications & Profile) -->
+<div class="flex items-center gap-1">
+<button aria-label="Notificaciones" class="relative p-2 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<button aria-label="Perfil" class="p-1 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[30px] text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-stack-md pb-6 flex flex-col gap-stack-md">
+<!-- Header Intro Section -->
+<section class="flex flex-col gap-2">
+<div class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="science">science</span>
+<span class="">Paneles Activos</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background font-semibold tracking-tight">
+          Paneles Sensoriales Disponibles
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Explore nuestras oportunidades de prueba actuales. Concéntrese en paneles de alta recompensa o pruebas cerca de su ubicación de laboratorio preferida. Seleccione un estudio para ver los detalles y asegurar su lugar.
+        </p>
+</section>
+<!-- Filter Chips Carousel (Horizontal scrollable) -->
+<section class="overflow-x-auto no-scrollbar -mx-margin-mobile px-margin-mobile flex items-center gap-2 py-1">
+<!-- Active Filter Chip -->
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="">Todos</span>
+<span class="bg-primary-container text-on-primary-container px-1.5 py-0.2 rounded-full text-label-sm">12</span>
+</button>
+<!-- Inactive Filter Chips -->
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container font-label-md text-label-md shrink-0 active:scale-95 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_cafe">local_cafe</span>
+<span class="">Bebida</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container font-label-md text-label-md shrink-0 active:scale-95 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="egg_alt">egg_alt</span>
+<span class="">Lácteos</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container font-label-md text-label-md shrink-0 active:scale-95 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="cookie">cookie</span>
+<span class="">Snack</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container font-label-md text-label-md shrink-0 active:scale-95 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="spa">spa</span>
+<span class="">Cosmética</span>
+</button>
+</section>
+<!-- Studies Card Feed (Thumb-optimized layout) -->
+<section class="flex flex-col gap-4">
+<!-- Card 1: Formulación de Cítricos Espumosos -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 custom-card-shadow flex flex-col gap-3.5 transition-all">
+<!-- Card Header & Badges -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_bar">local_bar</span>
+                Bebida
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="payments">payments</span>
+                Recompensa $45 USD
+              </span>
+</div>
+<!-- Bookmark Button -->
+<button aria-label="Guardar estudio en favoritos" class="p-1.5 -mr-1 -mt-1 text-on-surface-variant hover:text-primary active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Card Content -->
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-[20px] leading-[26px] font-semibold text-on-background tracking-tight">
+              Formulación de Cítricos Espumosos
+            </h2>
+<p class="font-body-md text-[14px] leading-5 text-on-surface-variant line-clamp-2">
+              Evaluación sensorial descriptiva y de aceptación organoléptica para nuevos refrescos carbonatados con extractos naturales de lima y toronja.
+            </p>
+</div>
+<!-- Metadata & Location -->
+<div class="flex items-center justify-between text-on-surface-variant border-t border-surface-container pt-3">
+<div class="flex items-center gap-3 font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+                24 Oct, 2024
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="schedule">schedule</span>
+                45 min
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Sensolab</span>
+</div>
+<!-- CTA Action -->
+<button class="w-full h-12 flex items-center justify-center gap-2 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95 active:scale-[0.98] transition-transform shadow-sm" type="button">
+<span class="">Participar</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+<!-- Card 2: Perfil de Textura Basado en Plantas -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 custom-card-shadow flex flex-col gap-3.5 transition-all">
+<!-- Card Header & Badges -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="psychiatry">psychiatry</span>
+                Lácteos
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="payments">payments</span>
+                Recompensa $60 USD
+              </span>
+</div>
+<!-- Bookmark Button -->
+<button aria-label="Guardar estudio en favoritos" class="p-1.5 -mr-1 -mt-1 text-on-surface-variant hover:text-primary active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Card Content -->
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-[20px] leading-[26px] font-semibold text-on-background tracking-tight">
+              Perfil de Textura Basado en Plantas
+            </h2>
+<p class="font-body-md text-[14px] leading-5 text-on-surface-variant line-clamp-2">
+              Prueba discriminativa temporal (TDS) para determinar cremosidad, disolución bucal y regusto en postres alternativos de avena y almendra.
+            </p>
+</div>
+<!-- Metadata & Location -->
+<div class="flex items-center justify-between text-on-surface-variant border-t border-surface-container pt-3">
+<div class="flex items-center gap-3 font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+                26 Oct, 2024
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="schedule">schedule</span>
+                60 min
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Sensolab</span>
+</div>
+<!-- CTA Action -->
+<button class="w-full h-12 flex items-center justify-center gap-2 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95 active:scale-[0.98] transition-transform shadow-sm" type="button">
+<span class="">Participar</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+<!-- Card 3: Análisis de Crujido: Papas Fritas -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 custom-card-shadow flex flex-col gap-3.5 transition-all">
+<!-- Card Header & Badges -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="bakery_dining">bakery_dining</span>
+                Snack
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="payments">payments</span>
+                Recompensa $30 USD
+              </span>
+</div>
+<!-- Bookmark Button -->
+<button aria-label="Guardar estudio en favoritos" class="p-1.5 -mr-1 -mt-1 text-on-surface-variant hover:text-primary active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Card Content -->
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-[20px] leading-[26px] font-semibold text-on-background tracking-tight">
+              Análisis de Crujido: Papas Fritas
+            </h2>
+<p class="font-body-md text-[14px] leading-5 text-on-surface-variant line-clamp-2">
+              Cuantificación acústico-sensorial y de dureza de masticación en snacks artesanales horneados con sal de mar y hierbas finas.
+            </p>
+</div>
+<!-- Metadata & Location -->
+<div class="flex items-center justify-between text-on-surface-variant border-t border-surface-container pt-3">
+<div class="flex items-center gap-3 font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+                28 Oct, 2024
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="schedule">schedule</span>
+                30 min
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Sensolab</span>
+</div>
+<!-- CTA Action -->
+<button class="w-full h-12 flex items-center justify-center gap-2 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95 active:scale-[0.98] transition-transform shadow-sm" type="button">
+<span class="">Participar</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+</section>
+<!-- Trust and Compliance Micro-Banner -->
+<section class="bg-surface-container-low rounded-xl p-4 flex items-center gap-3 border border-outline-variant/60">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Protocolo ISO 13299</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pruebas anónimas, éticas y con compensación garantizada.</span>
+</div>
+</section>
+</main>
+<!-- Footer Component (from Shared JSON) -->
+<footer class="bg-surface-container-low border-t border-outline-variant flex flex-col items-center justify-center gap-stack-sm px-margin-mobile py-stack-md text-center mb-16">
+<div class="flex items-center gap-2"><img src="assets/logo-sensolab-dark.png" alt="SensoLab" class="h-7 w-auto object-contain mx-auto"></div>
+<div class="flex items-center justify-center gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors duration-150" href="#privacidad">Privacidad</a>
+<span class="">•</span>
+<a class="hover:text-primary transition-colors duration-150" href="#terminos">Términos</a>
+<span class="">•</span>
+<a class="hover:text-primary transition-colors duration-150" href="#contacto">Contacto</a>
+</div>
+<p class="font-body-md text-[12px] leading-4 text-outline">
+        © 2024 SensoLab. Todos los derechos reservados.
+      </p>
+</footer>
+<!-- BottomNavBar Component (from Shared JSON) -->
+<!-- Semantics: 'Catálogo' is the active item based on page purpose -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest border-t border-outline-variant shadow-sm w-full max-w-[420px] mx-auto flex justify-around items-center px-margin-mobile py-unit">
+<!-- Tablero (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="home.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tablero</span>
+</a>
+<!-- Catálogo (ACTIVE - per logic mapping and style_active_navigation) -->
+<a class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-3 py-1 active:scale-95 transition-transform" href="catalogo.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="science" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">science</span>
+<span class="font-label-sm text-label-sm font-semibold mt-0.5">Catálogo</span>
+</a>
+<!-- Historial (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="user.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm mt-0.5">Historial</span>
+</a>
+<!-- Confianza (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="acreditaciones.html">
+<span class="material-symbols-outlined text-[24px]" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-label-sm mt-0.5">Confianza</span>
+</a>
+</nav>
+</div>
+
+
+<!-- prototipo:nav -->
+<script>
+  /* Navegacion del prototipo SensoLab. Anadido para poder recorrer las cuatro
+     pantallas como una app real; no forma parte del diseno original. */
+  (function () {
+    var TABLERO = "home.html";
+    var CATALOGO = "catalogo.html";
+    var HISTORIAL = "user.html";
+    var CONFIANZA = "acreditaciones.html";
+
+    var here = (location.pathname.split("/").pop() || "home.html").toLowerCase();
+
+    function go(url) {
+      window.location.href = url;
+    }
+
+    function label(el) {
+      return (el.textContent || "").replace(/\s+/g, " ").trim();
+    }
+
+    /* --- aviso flotante para acciones que no existen en un prototipo --- */
+    var toastEl = null;
+    var toastTimer = null;
+    function toast(msg) {
+      if (!toastEl) {
+        toastEl = document.createElement("div");
+        toastEl.setAttribute("role", "status");
+        toastEl.style.cssText =
+          "position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(8px);" +
+          "z-index:9999;max-width:320px;padding:12px 18px;border-radius:10px;" +
+          "background:#191c1d;color:#f8f9fa;font:500 14px/1.35 Inter,system-ui,sans-serif;" +
+          "text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;" +
+          "transition:opacity .18s ease,transform .18s ease;pointer-events:none;";
+        document.body.appendChild(toastEl);
+      }
+      toastEl.textContent = msg;
+      requestAnimationFrame(function () {
+        toastEl.style.opacity = "1";
+        toastEl.style.transform = "translateX(-50%) translateY(0)";
+      });
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toastEl.style.opacity = "0";
+        toastEl.style.transform = "translateX(-50%) translateY(8px)";
+      }, 2200);
+    }
+
+    /* --- el logotipo de la cabecera vuelve al tablero --- */
+    var logo = document.querySelector("header img");
+    if (logo && here !== TABLERO) {
+      logo.style.cursor = "pointer";
+      logo.addEventListener("click", function () {
+        go(TABLERO);
+      });
+    }
+
+    /* --- botones --- */
+    Array.prototype.forEach.call(document.querySelectorAll("button"), function (btn) {
+      var text = label(btn);
+      var aria = btn.getAttribute("aria-label") || "";
+      var dest = null;
+      var action = null;
+
+      if (/account_circle/.test(text) || /perfil|cuenta/i.test(aria)) {
+        dest = HISTORIAL;
+      } else if (/notifications/.test(text) || /notificacion/i.test(aria)) {
+        action = function () {
+          toast("Sin notificaciones nuevas");
+        };
+      } else if (/Nuevo Panel/i.test(text)) {
+        dest = CATALOGO;
+      } else if (/Ver Detalles|Preparar/i.test(text)) {
+        dest = CATALOGO;
+      } else if (/Participar/i.test(text)) {
+        dest = here === "catalogo.html" ? HISTORIAL : CATALOGO;
+      } else if (/Guardar Perfil/i.test(text)) {
+        action = function () {
+          toast("Perfil sensorial guardado");
+        };
+      } else if (/Descargar Paquete PDF/i.test(text)) {
+        action = function () {
+          toast("La descarga no esta disponible en el prototipo");
+        };
+      } else if (/favorito/i.test(aria)) {
+        action = function () {
+          var icon = btn.querySelector(".material-symbols-outlined");
+          if (!icon) return;
+          var on = btn.getAttribute("data-saved") === "1";
+          btn.setAttribute("data-saved", on ? "0" : "1");
+          icon.style.fontVariationSettings = on ? "" : '"FILL" 1';
+          icon.style.color = on ? "" : "#00666d";
+          toast(on ? "Quitado de guardados" : "Estudio guardado");
+        };
+      }
+
+      if (dest) {
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", function () {
+          go(dest);
+        });
+      } else if (action) {
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", action);
+      }
+    });
+
+    /* --- filtros del catalogo: filtran de verdad las tarjetas --- */
+    if (here === "catalogo.html") {
+      var chips = [];
+      Array.prototype.forEach.call(document.querySelectorAll("button"), function (b) {
+        if (/^(Todos|local_cafe Bebida|egg_alt L\u00e1cteos|cookie Snack|spa Cosm\u00e9tica)/i.test(label(b))) {
+          chips.push(b);
+        }
+      });
+      // Fallback: los chips viven todos en la misma fila scrollable.
+      if (chips.length < 2) {
+        var first = null;
+        Array.prototype.forEach.call(document.querySelectorAll("button"), function (b) {
+          if (!first && /^Todos/i.test(label(b))) first = b;
+        });
+        if (first && first.parentElement) {
+          chips = Array.prototype.slice.call(first.parentElement.querySelectorAll("button"));
+        }
+      }
+
+      var ON = ["bg-primary", "text-on-primary", "shadow-sm"];
+      var OFF = [
+        "bg-surface-container-lowest",
+        "text-on-surface-variant",
+        "border",
+        "border-outline-variant",
+        "hover:bg-surface-container",
+      ];
+
+      function setChip(chip, active) {
+        ON.forEach(function (c) {
+          chip.classList.toggle(c, active);
+        });
+        OFF.forEach(function (c) {
+          chip.classList.toggle(c, !active);
+        });
+      }
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll("article"));
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var raw = label(chip);
+          // quita la ligadura del icono y el contador
+          var name = raw.replace(/^[a-z_]+\s+/, "").replace(/\s*\d+$/, "").trim();
+          chips.forEach(function (c) {
+            setChip(c, c === chip);
+          });
+          var shown = 0;
+          cards.forEach(function (card) {
+            var match = /^todos$/i.test(name) || card.textContent.indexOf(name) !== -1;
+            card.style.display = match ? "" : "none";
+            if (match) shown++;
+          });
+          if (!/^todos$/i.test(name)) {
+            toast(shown + (shown === 1 ? " estudio" : " estudios") + " en " + name);
+          }
+        });
+      });
+    }
+  })();
+</script>
+<!-- /prototipo:nav -->
+</body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Acto 1 — Gancho</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: Inter, "Segoe UI", system-ui, sans-serif;
+          color: #ffffff;
+          overflow: hidden;
+        }
+
+        /* ---------- colour field ---------- */
+        #g-field {
+          position: absolute;
+          left: -12%;
+          top: 0;
+          width: 132%;
+          height: 100%;
+          background: #0b1416;
+          clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+        }
+
+        #g-slab {
+          position: absolute;
+          left: 1410px;
+          top: -140px;
+          width: 1180px;
+          height: 1360px;
+          background: #ff5a1f;
+          clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        #g-slab-2 {
+          position: absolute;
+          left: 1880px;
+          top: -140px;
+          width: 700px;
+          height: 1360px;
+          background: #0b1416;
+          clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        #g-bar {
+          position: absolute;
+          left: 96px;
+          top: 624px;
+          width: 1000px;
+          height: 10px;
+          background: #ff5a1f;
+          transform-origin: left center;
+        }
+
+        /* ---------- copy ---------- */
+        #g-eyebrow {
+          position: absolute;
+          left: 96px;
+          top: 252px;
+          font-size: 21px;
+          font-weight: 800;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: #ff5a1f;
+        }
+
+        #g-friction {
+          position: absolute;
+          left: 96px;
+          top: 312px;
+          width: 1180px;
+        }
+
+        .g-frict {
+          overflow: hidden;
+          height: 92px;
+        }
+
+        .g-frict-in {
+          display: block;
+          font-size: 68px;
+          font-weight: 800;
+          line-height: 92px;
+          letter-spacing: -0.03em;
+          color: rgba(255, 255, 255, 0.42);
+          white-space: nowrap;
+        }
+
+        .g-strike {
+          position: absolute;
+          left: 96px;
+          height: 7px;
+          background: #ff5a1f;
+          transform-origin: left center;
+        }
+
+        #g-strike-1 {
+          top: 358px;
+          width: 800px;
+        }
+        #g-strike-2 {
+          top: 450px;
+          width: 570px;
+        }
+        #g-strike-3 {
+          top: 542px;
+          width: 600px;
+        }
+
+        #g-headline {
+          position: absolute;
+          left: 96px;
+          top: 308px;
+          width: 1400px;
+        }
+
+        .g-mask {
+          display: block;
+          overflow: hidden;
+          height: 94px;
+        }
+
+        .g-line {
+          display: block;
+          font-size: 84px;
+          font-weight: 900;
+          line-height: 94px;
+          letter-spacing: -0.042em;
+          white-space: nowrap;
+          text-transform: uppercase;
+        }
+
+        .g-accent {
+          color: #ff5a1f;
+        }
+
+        #g-sub {
+          position: absolute;
+          left: 96px;
+          top: 672px;
+          width: 1000px;
+          font-size: 31px;
+          font-weight: 500;
+          line-height: 1.45;
+          color: rgba(255, 255, 255, 0.82);
+        }
+
+        #g-sub b {
+          font-weight: 900;
+          color: #ffffff;
+        }
+      </style>
+
+      <div data-hf-id="hf-zsvd" id="root" data-composition-id="gancho" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-9cnc" id="g-field" data-layout-allow-overflow="true">
+          <div data-hf-id="hf-2ofo" id="g-slab" data-layout-allow-overflow="true"></div>
+          <div data-hf-id="hf-or09" id="g-slab-2" data-layout-allow-overflow="true"></div>
+        </div>
+
+        <div data-hf-id="hf-6zhw" id="g-eyebrow">Propuesta para Sensolab</div>
+
+        <div data-hf-id="hf-z6a3" id="g-friction">
+          <div data-hf-id="hf-ad90" class="g-frict"><span data-hf-id="hf-onrf" id="g-fr-1" class="g-frict-in">Convocar por WhatsApp</span></div>
+          <div data-hf-id="hf-ovjg" class="g-frict"><span data-hf-id="hf-38zc" id="g-fr-2" class="g-frict-in">Agendar en Excel</span></div>
+          <div data-hf-id="hf-nomd" class="g-frict"><span data-hf-id="hf-uql0" id="g-fr-3" class="g-frict-in">Formularios largos</span></div>
+        </div>
+
+        <div data-hf-id="hf-3fkw" id="g-strike-1" class="g-strike"></div>
+        <div data-hf-id="hf-c3gr" id="g-strike-2" class="g-strike"></div>
+        <div data-hf-id="hf-85cq" id="g-strike-3" class="g-strike"></div>
+
+        <div data-hf-id="hf-7mil" id="g-headline">
+          <span data-hf-id="hf-9861" class="g-mask"><span data-hf-id="hf-1wo4" id="g-l1" class="g-line">La evaluación</span></span>
+          <span data-hf-id="hf-dc31" class="g-mask"><span data-hf-id="hf-h4j9" id="g-l2" class="g-line">sensorial es ciencia.</span></span>
+          <span data-hf-id="hf-ej04" class="g-mask"><span data-hf-id="hf-g5qp" id="g-l3" class="g-line g-accent">Su gestión también.</span></span>
+        </div>
+
+        <div data-hf-id="hf-7s74" id="g-bar"></div>
+
+        <div data-hf-id="hf-dq1m" id="g-sub">
+          Una plataforma para que el panelista <b data-hf-id="hf-iqqu">se registre, se agende y se certifique</b> solo.
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+
+          gsap.set("#g-headline", { autoAlpha: 0 });
+          gsap.set("#g-sub", { autoAlpha: 0 });
+          gsap.set("#g-bar", { scaleX: 0 });
+          gsap.set([".g-strike"], { scaleX: 0 });
+
+          // 0.00 — the ink field wipes across; the orange slab lands right behind it.
+          tl.fromTo(
+            "#g-field",
+            { xPercent: -120 },
+            { xPercent: 0, duration: 0.45, ease: "expo.out" },
+            0,
+          );
+          tl.fromTo(
+            "#g-slab",
+            { xPercent: 120 },
+            { xPercent: 0, duration: 0.55, ease: "expo.out" },
+            0.12,
+          );
+          tl.fromTo(
+            "#g-slab-2",
+            { xPercent: 140 },
+            { xPercent: 0, duration: 0.6, ease: "expo.out" },
+            0.2,
+          );
+
+          // 0.30 — label.
+          tl.fromTo(
+            "#g-eyebrow",
+            { x: -20, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.35, ease: "expo.out" },
+            0.3,
+          );
+
+          // 0.55 / 1.00 / 1.45 — three problems, struck out as they land.
+          [1, 2, 3].forEach(function (n, i) {
+            const t = 0.55 + i * 0.45;
+            tl.fromTo(
+              "#g-fr-" + n,
+              { yPercent: 105 },
+              { yPercent: 0, duration: 0.42, ease: "expo.out" },
+              t,
+            );
+            tl.fromTo(
+              "#g-strike-" + n,
+              { scaleX: 0 },
+              { scaleX: 1, duration: 0.28, ease: "power3.out" },
+              t + 0.2,
+            );
+          });
+
+          // 2.45 — the whole problem set is thrown out.
+          tl.to(
+            ["#g-fr-1", "#g-fr-2", "#g-fr-3"],
+            { yPercent: -105, duration: 0.34, stagger: 0.05, ease: "power3.in" },
+            2.45,
+          );
+          tl.to(
+            [".g-strike"],
+            { scaleX: 0, duration: 0.26, stagger: 0.05, ease: "power3.in" },
+            2.45,
+          );
+
+          // 2.85 — the dismissed stack leaves the layout entirely.
+          tl.set("#g-friction", { autoAlpha: 0 }, 2.85);
+          tl.set([".g-strike"], { autoAlpha: 0 }, 2.85);
+
+          // 2.95 — the answer, one line at a time.
+          tl.set("#g-headline", { autoAlpha: 1 }, 2.9);
+          tl.fromTo(
+            ["#g-l1", "#g-l2", "#g-l3"],
+            { yPercent: 105 },
+            { yPercent: 0, duration: 0.46, stagger: 0.13, ease: "expo.out" },
+            2.95,
+          );
+          tl.fromTo(
+            "#g-bar",
+            { scaleX: 0 },
+            { scaleX: 1, duration: 0.5, ease: "expo.out" },
+            3.55,
+          );
+
+          // 3.95 — the promise.
+          tl.fromTo(
+            "#g-sub",
+            { y: 22, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.45, ease: "expo.out" },
+            3.95,
+          );
+
+          // Constant drift so no frame ever sits still.
+          tl.fromTo("#g-slab", { x: 0 }, { x: -30, duration: 7.4, ease: "sine.inOut" }, 0.7);
+          tl.fromTo("#g-slab-2", { x: 0 }, { x: -60, duration: 7.4, ease: "sine.inOut" }, 0.7);
+          tl.fromTo(
+            "#g-headline",
+            { x: 0 },
+            { x: 26, duration: 4.6, ease: "sine.inOut" },
+            3.4,
+          );
+
+          // 8.20 — act 2's colour wipe has fully covered this frame by now,
+          // so the act clears itself before the two clips overlap on screen.
+          tl.set(
+            ["#g-eyebrow", "#g-headline", "#g-sub", "#g-bar", "#g-field"],
+            { autoAlpha: 0 },
+            8.2,
+          );
+
+          window.__timelines["gancho"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

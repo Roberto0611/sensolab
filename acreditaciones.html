@@ -1,0 +1,613 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SensoLab - Confianza y Acreditaciones</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration JSON -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-fixed": "#002022",
+                  "surface-variant": "#e1e3e4",
+                  "error": "#ba1a1a",
+                  "surface-tint": "#006970",
+                  "surface-container-highest": "#e1e3e4",
+                  "inverse-on-surface": "#f0f1f2",
+                  "on-tertiary-fixed": "#011e2d",
+                  "inverse-primary": "#6fd6df",
+                  "on-tertiary": "#ffffff",
+                  "secondary-fixed-dim": "#ffb781",
+                  "on-tertiary-container": "#fcfcff",
+                  "on-tertiary-fixed-variant": "#304a5a",
+                  "background": "#f8f9fa",
+                  "inverse-surface": "#2e3132",
+                  "on-primary-fixed-variant": "#004f54",
+                  "on-error": "#ffffff",
+                  "surface-container": "#edeeef",
+                  "on-background": "#191c1d",
+                  "outline": "#6d797a",
+                  "tertiary-fixed": "#cbe6fb",
+                  "tertiary": "#455f70",
+                  "surface": "#f8f9fa",
+                  "primary-fixed-dim": "#6fd6df",
+                  "error-container": "#ffdad6",
+                  "primary": "#00666d",
+                  "on-secondary-fixed-variant": "#6f3800",
+                  "surface-dim": "#d9dadb",
+                  "on-primary-container": "#f5feff",
+                  "on-surface": "#191c1d",
+                  "on-primary": "#ffffff",
+                  "primary-fixed": "#8df2fc",
+                  "secondary-fixed": "#ffdcc4",
+                  "outline-variant": "#bdc9ca",
+                  "surface-container-lowest": "#ffffff",
+                  "on-secondary-fixed": "#2f1400",
+                  "on-surface-variant": "#3d494a",
+                  "secondary": "#924c00",
+                  "on-secondary": "#ffffff",
+                  "surface-bright": "#f8f9fa",
+                  "tertiary-container": "#5e788a",
+                  "surface-container-low": "#f3f4f5",
+                  "primary-container": "#00818a",
+                  "on-secondary-container": "#673400",
+                  "on-error-container": "#93000a",
+                  "surface-container-high": "#e7e8e9",
+                  "tertiary-fixed-dim": "#afcade",
+                  "secondary-container": "#fd9438"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-lg": "48px",
+                  "unit": "8px",
+                  "gutter": "24px",
+                  "container-max-width": "1200px",
+                  "margin-mobile": "16px",
+                  "margin-desktop": "40px",
+                  "stack-sm": "8px",
+                  "stack-md": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": [
+                          "Inter"
+                  ],
+                  "headline-xl": [
+                          "Inter"
+                  ],
+                  "body-lg": [
+                          "Inter"
+                  ],
+                  "label-md": [
+                          "Inter"
+                  ],
+                  "label-sm": [
+                          "Inter"
+                  ],
+                  "headline-lg": [
+                          "Inter"
+                  ],
+                  "body-md": [
+                          "Inter"
+                  ],
+                  "headline-md": [
+                          "Inter"
+                  ]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": [
+                          "28px",
+                          {
+                                  "lineHeight": "36px",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "headline-xl": [
+                          "48px",
+                          {
+                                  "lineHeight": "56px",
+                                  "letterSpacing": "-0.02em",
+                                  "fontWeight": "700"
+                          }
+                  ],
+                  "body-lg": [
+                          "18px",
+                          {
+                                  "lineHeight": "28px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "label-md": [
+                          "14px",
+                          {
+                                  "lineHeight": "20px",
+                                  "letterSpacing": "0.05em",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "label-sm": [
+                          "12px",
+                          {
+                                  "lineHeight": "16px",
+                                  "fontWeight": "500"
+                          }
+                  ],
+                  "headline-lg": [
+                          "32px",
+                          {
+                                  "lineHeight": "40px",
+                                  "letterSpacing": "-0.01em",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "body-md": [
+                          "16px",
+                          {
+                                  "lineHeight": "24px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "headline-md": [
+                          "24px",
+                          {
+                                  "lineHeight": "32px",
+                                  "fontWeight": "600"
+                          }
+                  ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <!-- prototipo:shell -->
+<script>
+  /* Vista movil forzada: en escritorio la pantalla se abre dentro del marco de
+     telefono de index.html. Dentro del iframe no hace nada. */
+  (function () {
+    try {
+      if (window.self !== window.top) return;          // ya esta en el visor
+      if (window.innerWidth < 700) return;             // telefono real
+      var here = (location.pathname.split("/").pop() || "home.html").toLowerCase();
+      location.replace("index.html?p=" + encodeURIComponent(here));
+    } catch (e) {
+      /* si algo falla, la pagina se muestra tal cual */
+    }
+  })();
+</script>
+<!-- /prototipo:shell -->
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Main Mobile Shell Wrapper (max-w-md viewport simulation ~390px) -->
+<div class="max-w-[420px] mx-auto min-h-screen bg-background relative flex flex-col shadow-xl">
+<!-- TopAppBar Component (from Shared Components JSON) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile py-unit">
+<div class="flex items-center gap-2"><img src="assets/logo-sensolab-dark.png" alt="SensoLab Solutions" class="h-8 w-auto object-contain"></div>
+<div class="flex items-center">
+<button aria-label="Cuenta" class="p-1 rounded-full hover:bg-surface-container transition-colors duration-150 active:scale-95 text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-3xl leading-none" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 pb-stack-lg">
+<!-- Hero Banner: Teal Styled adaptations for mobile -->
+<section class="bg-primary text-on-primary px-margin-mobile pt-stack-md pb-stack-lg rounded-b-3xl relative overflow-hidden shadow-sm">
+<div class="absolute -right-8 -bottom-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[160px] text-on-primary" data-icon="biotech">biotech</span>
+</div>
+<div class="relative z-10 flex flex-col gap-3">
+<div class="inline-flex items-center gap-2 self-start bg-primary-container/60 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-primary-fixed text-base" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-primary font-medium tracking-wide">Acreditación Oficial</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary tracking-tight font-bold">
+            Confianza y Acreditaciones
+          </h1>
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed opacity-95">
+            En SensoLab, los rigurosos estándares científicos son la base de nuestra investigación. Nuestras certificaciones demuestran nuestro compromiso con la calidad, la precisión y las prácticas éticas en la evaluación sensorial.
+          </p>
+<div class="mt-2 flex items-center gap-3 pt-2 border-t border-primary-container/40 text-primary-fixed text-sm">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base" data-icon="check_circle">check_circle</span>
+<span class="">Auditado 2024</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base" data-icon="shield">shield</span>
+<span class="">100% Ético &amp; Seguro</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Estándares de Calidad Globales -->
+<div class="px-margin-mobile mt-stack-md">
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-wider">MARCO REGULATORIO</span>
+<h2 class="font-headline-md text-headline-md text-on-background mt-0.5">
+            Estándares de Calidad Globales
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Garantía metódica y rigurosidad científica en cada etapa de panelización y muestreo.
+          </p>
+</div>
+<!-- Vertical Certification Cards List -->
+<div class="flex flex-col gap-4">
+<!-- Card 1: ISO 9001:2015 -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/50 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<h3 class="font-headline-md text-base font-bold text-on-surface">ISO 9001:2015</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sistemas de Gestión de Calidad</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Certificado
+              </span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-3 leading-snug">
+              Certificación internacional que avala la estandarización de procesos de pruebas de degustación, cabinas sensoriales y control riguroso de variables.
+            </p>
+<div class="flex flex-wrap items-center gap-2 pt-2 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm bg-surface-container text-on-surface-variant px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="calendar_today">calendar_today</span>
+                Válido hasta: 2026
+              </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm bg-primary-fixed/40 text-on-primary-fixed-variant px-2.5 py-1 rounded-full font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="public">public</span>
+                Alcance Global
+              </span>
+</div>
+</article>
+<!-- Card 2: ISO 20252 -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/50 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="query_stats">query_stats</span>
+</div>
+<div>
+<h3 class="font-headline-md text-base font-bold text-on-surface">ISO 20252</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Investigación de Mercado, Opinión y Social</p>
+</div>
+</div>
+<span class="inline-flex items-center text-primary font-label-sm text-label-sm font-semibold">
+                Activa
+              </span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant mb-3 leading-snug">
+              Directrices de calidad para la selección y reclutamiento representativo de panelistas, garantizando integridad ética y confidencialidad investigativa.
+            </p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-outline">Ref: ISO-20252-SLB</span>
+<a class="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md text-label-md font-semibold transition-colors" href="#">
+<span class="">Ver Certificado</span>
+<span class="material-symbols-outlined text-base" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</article>
+<!-- Card 3: ASTM E18 -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/50 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-start gap-2.5 mb-2">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="science">science</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-base font-bold text-on-surface">ASTM E18</h3>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded">Sensory Standard</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Comité E18 de Evaluación Sensorial</p>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant leading-snug mb-3">
+              Cumplimiento irrestricto de las normas y directrices del comité técnico ASTM E18 para pruebas sensoriales descriptivas, discriminativas y de preferencia hedónica.
+            </p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified">verified</span>
+                Metodología E18.04 &amp; E18.06
+              </span>
+</div>
+</article>
+<!-- Card 4: GDPR & CCPA -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/50 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-start gap-2.5 mb-2">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-base font-bold text-on-surface">GDPR &amp; CCPA</h3>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Privacidad</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Protección Global de Datos</p>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant leading-snug">
+              Protección de datos y anonimización irreversible de historiales clínicos, preferencias de sabor y datos biométricos de cada uno de nuestros panelistas.
+            </p>
+</article>
+<!-- Card 5: IRB Approval -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/50 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-start gap-2.5 mb-2">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="gavel">gavel</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-base font-bold text-on-surface">IRB Approval</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary px-2 py-0.5 rounded-full font-medium">Ética Médica</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Supervisión de Junta de Revisión Institucional</p>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant leading-snug">
+              Todos los protocolos que involucran alérgenos, nuevas moléculas de sabor y texturas experimentales son evaluados bajo estrictos consensos bioéticos independientes.
+            </p>
+</article>
+</div>
+<!-- Download Compliance Package Card -->
+<section class="mt-stack-md bg-surface-container-low rounded-2xl p-5 border border-outline-variant/60 relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="p-2.5 rounded-xl bg-secondary text-on-secondary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-headline-md text-base font-bold text-on-surface">
+                ¿Necesita una copia para sus registros?
+              </h4>
+<p class="font-body-md text-sm text-on-surface-variant mt-1">
+                Descargue nuestro paquete de cumplimiento completo con copias notariales de auditoría y acreditaciones de laboratorio.
+              </p>
+</div>
+</div>
+<div class="mt-4">
+<!-- CTA Button using secondary theme color, min-h 48px target -->
+<button class="w-full min-h-[48px] bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="download">download</span>
+<span class="">Descargar Paquete PDF</span>
+</button>
+<p class="font-label-sm text-label-sm text-center text-outline mt-2">
+              Versión consolidada 2024 (PDF, 4.8 MB)
+            </p>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Component (from Shared Components JSON) -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center gap-stack-sm px-margin-mobile py-stack-md text-center mb-16">
+<div class="bg-primary px-3 py-1.5 rounded-lg flex items-center justify-center"><img src="assets/logo-sensolab-dark.png" alt="SensoLab Solutions" class="h-6 w-auto object-contain"></div>
+<p class="font-body-md text-label-sm text-on-surface-variant">
+          © 2024 SensoLab. Todos los derechos reservados.
+        </p>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 active:opacity-80" href="#">Privacidad</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 active:opacity-80" href="#">Términos</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 active:opacity-80" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar Component (from Shared Components JSON - Active state: Confianza) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-unit bg-surface-container-lowest shadow-sm border-t border-outline-variant max-w-[420px] left-1/2 -translate-x-1/2">
+<!-- Item 1: Tablero -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="home.html">
+<span class="material-symbols-outlined text-2xl" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tablero</span>
+</a>
+<!-- Item 2: Catálogo -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="catalogo.html">
+<span class="material-symbols-outlined text-2xl" data-icon="science">science</span>
+<span class="font-label-sm text-label-sm mt-0.5">Catálogo</span>
+</a>
+<!-- Item 3: Historial -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary transition-colors duration-150 active:scale-95" href="user.html">
+<span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm mt-0.5">Historial</span>
+</a>
+<!-- Item 4: Confianza (ACTIVE ITEM per semantic intent) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-full px-3 py-1 active:scale-95 transition-transform duration-100 shadow-sm" href="acreditaciones.html">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">Confianza</span>
+</a>
+</nav>
+</div>
+
+
+
+
+<!-- prototipo:nav -->
+<script>
+  /* Navegacion del prototipo SensoLab. Anadido para poder recorrer las cuatro
+     pantallas como una app real; no forma parte del diseno original. */
+  (function () {
+    var TABLERO = "home.html";
+    var CATALOGO = "catalogo.html";
+    var HISTORIAL = "user.html";
+    var CONFIANZA = "acreditaciones.html";
+
+    var here = (location.pathname.split("/").pop() || "home.html").toLowerCase();
+
+    function go(url) {
+      window.location.href = url;
+    }
+
+    function label(el) {
+      return (el.textContent || "").replace(/\s+/g, " ").trim();
+    }
+
+    /* --- aviso flotante para acciones que no existen en un prototipo --- */
+    var toastEl = null;
+    var toastTimer = null;
+    function toast(msg) {
+      if (!toastEl) {
+        toastEl = document.createElement("div");
+        toastEl.setAttribute("role", "status");
+        toastEl.style.cssText =
+          "position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(8px);" +
+          "z-index:9999;max-width:320px;padding:12px 18px;border-radius:10px;" +
+          "background:#191c1d;color:#f8f9fa;font:500 14px/1.35 Inter,system-ui,sans-serif;" +
+          "text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;" +
+          "transition:opacity .18s ease,transform .18s ease;pointer-events:none;";
+        document.body.appendChild(toastEl);
+      }
+      toastEl.textContent = msg;
+      requestAnimationFrame(function () {
+        toastEl.style.opacity = "1";
+        toastEl.style.transform = "translateX(-50%) translateY(0)";
+      });
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toastEl.style.opacity = "0";
+        toastEl.style.transform = "translateX(-50%) translateY(8px)";
+      }, 2200);
+    }
+
+    /* --- el logotipo de la cabecera vuelve al tablero --- */
+    var logo = document.querySelector("header img");
+    if (logo && here !== TABLERO) {
+      logo.style.cursor = "pointer";
+      logo.addEventListener("click", function () {
+        go(TABLERO);
+      });
+    }
+
+    /* --- botones --- */
+    Array.prototype.forEach.call(document.querySelectorAll("button"), function (btn) {
+      var text = label(btn);
+      var aria = btn.getAttribute("aria-label") || "";
+      var dest = null;
+      var action = null;
+
+      if (/account_circle/.test(text) || /perfil|cuenta/i.test(aria)) {
+        dest = HISTORIAL;
+      } else if (/notifications/.test(text) || /notificacion/i.test(aria)) {
+        action = function () {
+          toast("Sin notificaciones nuevas");
+        };
+      } else if (/Nuevo Panel/i.test(text)) {
+        dest = CATALOGO;
+      } else if (/Ver Detalles|Preparar/i.test(text)) {
+        dest = CATALOGO;
+      } else if (/Participar/i.test(text)) {
+        dest = here === "catalogo.html" ? HISTORIAL : CATALOGO;
+      } else if (/Guardar Perfil/i.test(text)) {
+        action = function () {
+          toast("Perfil sensorial guardado");
+        };
+      } else if (/Descargar Paquete PDF/i.test(text)) {
+        action = function () {
+          toast("La descarga no esta disponible en el prototipo");
+        };
+      } else if (/favorito/i.test(aria)) {
+        action = function () {
+          var icon = btn.querySelector(".material-symbols-outlined");
+          if (!icon) return;
+          var on = btn.getAttribute("data-saved") === "1";
+          btn.setAttribute("data-saved", on ? "0" : "1");
+          icon.style.fontVariationSettings = on ? "" : '"FILL" 1';
+          icon.style.color = on ? "" : "#00666d";
+          toast(on ? "Quitado de guardados" : "Estudio guardado");
+        };
+      }
+
+      if (dest) {
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", function () {
+          go(dest);
+        });
+      } else if (action) {
+        btn.style.cursor = "pointer";
+        btn.addEventListener("click", action);
+      }
+    });
+
+    /* --- filtros del catalogo: filtran de verdad las tarjetas --- */
+    if (here === "catalogo.html") {
+      var chips = [];
+      Array.prototype.forEach.call(document.querySelectorAll("button"), function (b) {
+        if (/^(Todos|local_cafe Bebida|egg_alt L\u00e1cteos|cookie Snack|spa Cosm\u00e9tica)/i.test(label(b))) {
+          chips.push(b);
+        }
+      });
+      // Fallback: los chips viven todos en la misma fila scrollable.
+      if (chips.length < 2) {
+        var first = null;
+        Array.prototype.forEach.call(document.querySelectorAll("button"), function (b) {
+          if (!first && /^Todos/i.test(label(b))) first = b;
+        });
+        if (first && first.parentElement) {
+          chips = Array.prototype.slice.call(first.parentElement.querySelectorAll("button"));
+        }
+      }
+
+      var ON = ["bg-primary", "text-on-primary", "shadow-sm"];
+      var OFF = [
+        "bg-surface-container-lowest",
+        "text-on-surface-variant",
+        "border",
+        "border-outline-variant",
+        "hover:bg-surface-container",
+      ];
+
+      function setChip(chip, active) {
+        ON.forEach(function (c) {
+          chip.classList.toggle(c, active);
+        });
+        OFF.forEach(function (c) {
+          chip.classList.toggle(c, !active);
+        });
+      }
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll("article"));
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var raw = label(chip);
+          // quita la ligadura del icono y el contador
+          var name = raw.replace(/^[a-z_]+\s+/, "").replace(/\s*\d+$/, "").trim();
+          chips.forEach(function (c) {
+            setChip(c, c === chip);
+          });
+          var shown = 0;
+          cards.forEach(function (card) {
+            var match = /^todos$/i.test(name) || card.textContent.indexOf(name) !== -1;
+            card.style.display = match ? "" : "none";
+            if (match) shown++;
+          });
+          if (!/^todos$/i.test(name)) {
+            toast(shown + (shown === 1 ? " estudio" : " estudios") + " en " + name);
+          }
+        });
+      });
+    }
+  })();
+</script>
+<!-- /prototipo:nav -->
+</body></html>

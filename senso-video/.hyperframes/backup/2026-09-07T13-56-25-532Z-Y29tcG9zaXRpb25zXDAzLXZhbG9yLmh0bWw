@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Acto 3 — Propuesta de valor</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: Inter, "Segoe UI", system-ui, sans-serif;
+          color: #ffffff;
+          overflow: hidden;
+        }
+
+        #v-field {
+          position: absolute;
+          left: -12%;
+          top: 0;
+          width: 132%;
+          height: 100%;
+          background: #00343b;
+          clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+          z-index: 0;
+        }
+
+        #v-band {
+          position: absolute;
+          left: -12%;
+          top: 300px;
+          width: 132%;
+          height: 520px;
+          background: rgba(0, 0, 0, 0.22);
+          z-index: 0;
+        }
+
+        #v-eyebrow {
+          position: absolute;
+          left: 96px;
+          top: 150px;
+          z-index: 2;
+          font-size: 21px;
+          font-weight: 800;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: #00e0c8;
+        }
+
+        #v-head {
+          position: absolute;
+          left: 96px;
+          top: 186px;
+          width: 1600px;
+          z-index: 2;
+          margin: 0;
+        }
+
+        .v-mask {
+          display: block;
+          overflow: hidden;
+          height: 104px;
+        }
+
+        .v-line {
+          display: block;
+          font-size: 92px;
+          font-weight: 900;
+          line-height: 104px;
+          letter-spacing: -0.042em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        #v-cards {
+          position: absolute;
+          left: 96px;
+          top: 336px;
+          width: 1728px;
+          height: 486px;
+          z-index: 2;
+          display: flex;
+          gap: 36px;
+        }
+
+        .v-card {
+          position: relative;
+          flex: 1 1 0;
+          height: 486px;
+          box-sizing: border-box;
+          padding: 38px 36px;
+          overflow: hidden;
+        }
+
+        #v-card-1 {
+          background: #00e0c8;
+          color: #00252a;
+        }
+        #v-card-2 {
+          background: #ff6b00;
+          color: #2b1200;
+        }
+        #v-card-3 {
+          background: #00a8ff;
+          color: #00243d;
+        }
+
+        .v-card-num {
+          font-size: 22px;
+          font-weight: 900;
+          letter-spacing: 0.24em;
+          opacity: 0.72;
+        }
+
+        .v-card-title {
+          margin: 22px 0 18px 0;
+          font-size: 46px;
+          font-weight: 900;
+          line-height: 1.06;
+          letter-spacing: -0.035em;
+          text-transform: uppercase;
+        }
+
+        .v-card-body {
+          margin: 0;
+          font-size: 25px;
+          font-weight: 600;
+          line-height: 1.42;
+        }
+
+        .v-card-ghost {
+          position: absolute;
+          right: -22px;
+          bottom: -110px;
+          font-size: 260px;
+          font-weight: 900;
+          line-height: 1;
+          letter-spacing: -0.06em;
+          opacity: 0.12;
+        }
+
+        #v-summary {
+          position: absolute;
+          left: 96px;
+          top: 872px;
+          width: 1700px;
+          z-index: 2;
+          font-size: 40px;
+          font-weight: 800;
+          line-height: 1.3;
+          letter-spacing: -0.025em;
+          color: #ffffff;
+        }
+
+        #v-summary b {
+          font-weight: 900;
+          color: #00e0c8;
+        }
+      </style>
+
+      <div data-hf-id="hf-3ugz" id="root" data-composition-id="valor" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-igyh" id="v-field" data-layout-allow-overflow="true"></div>
+        <div data-hf-id="hf-fvk6" id="v-band" data-layout-allow-overflow="true"></div>
+
+        <div data-hf-id="hf-1txv" id="v-eyebrow">Lo que gana Sensolab</div>
+
+        <h2 data-hf-id="hf-5v21" id="v-head">
+          <span data-hf-id="hf-msgm" class="v-mask"><span data-hf-id="hf-kq98" id="v-l1" class="v-line">Tres ganancias inmediatas.</span></span>
+        </h2>
+
+        <div data-hf-id="hf-o3rv" id="v-cards">
+          <div data-hf-id="hf-nk58" id="v-card-1" class="v-card">
+            <div data-hf-id="hf-jjc5" class="v-card-num">01</div>
+            <h3 data-hf-id="hf-nm35" class="v-card-title">Eficiencia operativa</h3>
+            <p data-hf-id="hf-cmbm" class="v-card-body">
+              Convocatoria, agenda y confirmación en un solo flujo. El coordinador vuelve al
+              laboratorio.
+            </p>
+            <div data-hf-id="hf-6avh" class="v-card-ghost" data-layout-ignore="true">01</div>
+          </div>
+
+          <div data-hf-id="hf-w813" id="v-card-2" class="v-card">
+            <div data-hf-id="hf-syv8" class="v-card-num">02</div>
+            <h3 data-hf-id="hf-lo1h" class="v-card-title">Fidelización</h3>
+            <p data-hf-id="hf-ez9u" class="v-card-body">
+              El panelista ve su perfil, sus preferencias y su historial. Ve su progreso y
+              vuelve.
+            </p>
+            <div data-hf-id="hf-7hsk" class="v-card-ghost" data-layout-ignore="true">02</div>
+          </div>
+
+          <div data-hf-id="hf-s9x2" id="v-card-3" class="v-card">
+            <div data-hf-id="hf-kby7" class="v-card-num">03</div>
+            <h3 data-hf-id="hf-00ez" class="v-card-title">Control de datos</h3>
+            <p data-hf-id="hf-kx6o" class="v-card-body">
+              Trazabilidad por panel, sesión y evaluador. Un solo registro auditable.
+            </p>
+            <div data-hf-id="hf-73hj" class="v-card-ghost" data-layout-ignore="true">03</div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-wh4b" id="v-summary">
+          Un panel <b data-hf-id="hf-6fue">más grande, mejor calificado y mejor documentado</b> — sin sumar
+          carga administrativa.
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const cards = ["#v-card-1", "#v-card-2", "#v-card-3"];
+
+          gsap.set("#v-summary", { autoAlpha: 0 });
+          gsap.set(cards, { autoAlpha: 0 });
+
+          // 0.00 — teal field wipes the demo away.
+          tl.fromTo(
+            "#v-field",
+            { xPercent: -120 },
+            { xPercent: 0, duration: 0.45, ease: "expo.out" },
+            0,
+          );
+          tl.fromTo(
+            "#v-band",
+            { xPercent: 120 },
+            { xPercent: 0, duration: 0.55, ease: "expo.out" },
+            0.1,
+          );
+
+          // 0.25 — label + headline.
+          tl.fromTo(
+            "#v-eyebrow",
+            { x: -20, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.32, ease: "expo.out" },
+            0.25,
+          );
+          tl.fromTo(
+            "#v-l1",
+            { yPercent: 105 },
+            { yPercent: 0, duration: 0.5, ease: "expo.out" },
+            0.35,
+          );
+
+          // 1.05 / 1.95 / 2.85 — the rule of three, hard cuts, one colour each.
+          cards.forEach(function (card, i) {
+            const t = 0.72 + i * 0.78;
+            tl.set(card, { autoAlpha: 1 }, t);
+            tl.fromTo(
+              card,
+              { yPercent: 106 },
+              { yPercent: 0, duration: 0.52, ease: "expo.out" },
+              t,
+            );
+            tl.fromTo(
+              card + " .v-card-num",
+              { autoAlpha: 0 },
+              { autoAlpha: 1, duration: 0.25, ease: "none" },
+              t + 0.2,
+            );
+            tl.fromTo(
+              card + " .v-card-title",
+              { yPercent: 30, autoAlpha: 0 },
+              { yPercent: 0, autoAlpha: 1, duration: 0.4, ease: "expo.out" },
+              t + 0.22,
+            );
+            tl.fromTo(
+              card + " .v-card-body",
+              { yPercent: 24, autoAlpha: 0 },
+              { yPercent: 0, autoAlpha: 1, duration: 0.42, ease: "expo.out" },
+              t + 0.32,
+            );
+            // Each card keeps breathing so the trio never freezes.
+            tl.fromTo(
+              card + " .v-card-ghost",
+              { x: 0 },
+              { x: -34, duration: 6.4, ease: "sine.inOut" },
+              t + 0.6,
+            );
+          });
+
+          // 4.4 — the takeaway.
+          tl.fromTo(
+            "#v-summary",
+            { y: 26, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.45, ease: "expo.out" },
+            3.4,
+          );
+
+          // Slow band drift under the trio.
+          tl.fromTo("#v-band", { x: 0 }, { x: -60, duration: 8, ease: "sine.inOut" }, 1.2);
+
+          // 9.7 — cards drop out fast for the brand card.
+          tl.to(
+            cards,
+            { yPercent: -110, duration: 0.42, stagger: 0.06, ease: "power3.in" },
+            9.65,
+          );
+          tl.to(
+            ["#v-eyebrow", "#v-head", "#v-summary"],
+            { autoAlpha: 0, duration: 0.3, ease: "power2.in" },
+            9.8,
+          );
+
+          // 10.15 — act 4's wipe already covers the frame; clear this one.
+          tl.set(
+            ["#v-field", "#v-band", "#v-eyebrow", "#v-head", "#v-summary", "#v-cards"],
+            { autoAlpha: 0 },
+            10.15,
+          );
+
+          window.__timelines["valor"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

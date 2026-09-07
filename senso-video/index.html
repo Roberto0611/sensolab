@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Sensolab — Plataforma de Panelistas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0b1416;
+        overflow: hidden;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b1416;
+        font-family: Inter, "Segoe UI", system-ui, sans-serif;
+        color: #ffffff;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* Flat ink base. Every act paints its own colour field on top of this. */
+      .ink-base {
+        position: absolute;
+        inset: 0;
+        background: #0b1416;
+      }
+
+      /* ---------- persistent rail ---------- */
+      #stage-rail {
+        pointer-events: none;
+      }
+
+      #rail-mark {
+        position: absolute;
+        left: 96px;
+        top: 76px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+
+      #rail-chip {
+        width: 15px;
+        height: 15px;
+        background: #ffffff;
+      }
+
+      #rail-word {
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+
+      #rail-progress-track {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 72px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.22);
+        overflow: hidden;
+      }
+
+      #rail-progress-fill {
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        transform-origin: left center;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-wowj" id="root" data-composition-id="master" data-root="true" data-width="1920" data-height="1080" data-fps="30" data-start="0" data-duration="55">
+      <div data-hf-id="hf-gexb" id="stage-ink" class="clip" data-start="0" data-duration="55" data-track-index="0">
+        <div data-hf-id="hf-u1je" class="ink-base"></div>
+      </div>
+
+      <!-- ACT 1 — Gancho (0–8.6s) -->
+      <div data-hf-id="hf-x2ja" id="act-gancho" class="clip" data-composition-id="gancho" data-composition-src="compositions/01-gancho.html" data-start="0" data-duration="8.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <!-- ACT 2 — Demo del prototipo (8.0–38.6s); its wipe covers the tail of act 1 -->
+      <div data-hf-id="hf-5k1m" id="act-demo" class="clip" data-composition-id="demo" data-composition-src="compositions/02-demo.html" data-start="8" data-duration="30.6" data-track-index="2" data-width="1920" data-height="1080"></div>
+
+      <!-- ACT 3 — Propuesta de valor (38.0–48.6s) -->
+      <div data-hf-id="hf-t6p8" id="act-valor" class="clip" data-composition-id="valor" data-composition-src="compositions/03-valor.html" data-start="38" data-duration="10.6" data-track-index="3" data-width="1920" data-height="1080"></div>
+
+      <!-- ACT 4 — Cierre (48.0–55.0s) -->
+      <div data-hf-id="hf-85xt" id="act-cierre" class="clip" data-composition-id="cierre" data-composition-src="compositions/04-cierre.html" data-start="48" data-duration="7" data-track-index="4" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-ih38" id="stage-rail" class="clip" data-start="0.3" data-duration="47.4" data-track-index="5">
+        <div data-hf-id="hf-t98t" id="rail-mark">
+          <div data-hf-id="hf-q8b8" id="rail-chip"></div>
+          <div data-hf-id="hf-vdy1" id="rail-word">Sensolab</div>
+        </div>
+        <div data-hf-id="hf-j73d" id="rail-progress-track">
+          <div data-hf-id="hf-otb3" id="rail-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const master = gsap.timeline({ paused: true });
+
+      // Rail snaps in — no slow fades anywhere in this cut.
+      master.fromTo(
+        "#rail-chip",
+        { scaleX: 0, autoAlpha: 0 },
+        { scaleX: 1, autoAlpha: 1, duration: 0.32, ease: "expo.out" },
+        0.35,
+      );
+      master.fromTo(
+        "#rail-word",
+        { x: -14, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, duration: 0.38, ease: "expo.out" },
+        0.45,
+      );
+      master.fromTo(
+        "#rail-progress-fill",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 47, ease: "none" },
+        0.5,
+      );
+
+      // Rail steps out for the brand card.
+      master.to("#stage-rail", { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, 47.4);
+
+      window.__timelines["master"] = master;
+    </script>
+  </body>
+</html>

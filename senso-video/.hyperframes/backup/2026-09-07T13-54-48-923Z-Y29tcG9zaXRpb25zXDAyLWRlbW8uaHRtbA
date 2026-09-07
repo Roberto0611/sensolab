@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Acto 2 — Demo del prototipo</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          font-family: Inter, "Segoe UI", system-ui, sans-serif;
+          color: #ffffff;
+          overflow: hidden;
+        }
+
+        /* ---------- colour fields (behind everything) ---------- */
+        #d-fields {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+
+        .d-field {
+          position: absolute;
+          left: -12%;
+          top: 0;
+          width: 132%;
+          height: 100%;
+          clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+        }
+
+        .d-slab {
+          position: absolute;
+          left: 1010px;
+          top: -160px;
+          width: 1160px;
+          height: 1400px;
+          clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        #d-field-1 {
+          background: #00343b;
+        }
+        #d-slab-1 {
+          background: #00e0c8;
+        }
+        #d-field-2 {
+          background: #331500;
+        }
+        #d-slab-2 {
+          background: #ff6b00;
+        }
+        #d-field-3 {
+          background: #00243d;
+        }
+        #d-slab-3 {
+          background: #00a8ff;
+        }
+        #d-field-4 {
+          background: #0b1416;
+        }
+        #d-slab-4 {
+          background: #ff5a1f;
+        }
+
+        /* ---------- oversized ghost numeral ---------- */
+        #d-ghost {
+          position: absolute;
+          left: 56px;
+          top: 452px;
+          z-index: 1;
+          font-size: 460px;
+          font-weight: 900;
+          line-height: 0.8;
+          letter-spacing: -0.06em;
+          color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ---------- copy column ---------- */
+        #d-copy {
+          position: absolute;
+          left: 96px;
+          top: 262px;
+          width: 940px;
+          height: 580px;
+          z-index: 3;
+        }
+
+        #d-kicker {
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 21px;
+          font-weight: 800;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.65);
+        }
+
+        .d-seg {
+          position: absolute;
+          left: 0;
+          top: 50px;
+          width: 940px;
+        }
+
+        .d-num {
+          font-size: 23px;
+          font-weight: 900;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          margin-bottom: 16px;
+        }
+
+        .d-mask {
+          display: block;
+          overflow: hidden;
+          height: 96px;
+        }
+
+        .d-line {
+          display: block;
+          font-size: 84px;
+          font-weight: 900;
+          line-height: 96px;
+          letter-spacing: -0.042em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        .d-note {
+          margin-top: 30px;
+          padding-left: 26px;
+          border-left: 6px solid #ffffff;
+          font-size: 28px;
+          font-weight: 500;
+          line-height: 1.4;
+          color: rgba(255, 255, 255, 0.9);
+          max-width: 760px;
+        }
+
+        #d-seg-1 .d-num,
+        #d-seg-1 .d-hi {
+          color: #00e0c8;
+        }
+        #d-seg-1 .d-note {
+          border-left-color: #00e0c8;
+        }
+        #d-seg-2 .d-num,
+        #d-seg-2 .d-hi {
+          color: #ffae6b;
+        }
+        #d-seg-2 .d-note {
+          border-left-color: #ff6b00;
+        }
+        #d-seg-3 .d-num,
+        #d-seg-3 .d-hi {
+          color: #6fd0ff;
+        }
+        #d-seg-3 .d-note {
+          border-left-color: #00a8ff;
+        }
+        #d-seg-4 .d-num,
+        #d-seg-4 .d-hi {
+          color: #ff8a3d;
+        }
+        #d-seg-4 .d-note {
+          border-left-color: #ff5a1f;
+        }
+
+        /* ---------- step bars ---------- */
+        #d-steps {
+          position: absolute;
+          left: 96px;
+          top: 908px;
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .d-dot {
+          height: 8px;
+          width: 66px;
+          background: rgba(255, 255, 255, 0.3);
+          overflow: hidden;
+        }
+
+        .d-dot-fill {
+          display: block;
+          height: 100%;
+          width: 100%;
+          background: #ffffff;
+          transform-origin: left center;
+        }
+
+        /* ---------- phone ---------- */
+        #d-phone-stage {
+          position: absolute;
+          left: 1150px;
+          top: 0;
+          width: 640px;
+          height: 1080px;
+          z-index: 3;
+          perspective: 1800px;
+        }
+
+        #d-phone {
+          position: absolute;
+          left: 112px;
+          top: 104px;
+          width: 416px;
+          height: 870px;
+          border-radius: 54px;
+          padding: 13px;
+          box-sizing: border-box;
+          background: #0b1416;
+          box-shadow: 0 46px 90px rgba(0, 0, 0, 0.5);
+        }
+
+        #d-screen {
+          position: relative;
+          width: 390px;
+          height: 844px;
+          border-radius: 42px;
+          overflow: hidden;
+          background: #f8f9fa;
+        }
+
+        #d-notch {
+          position: absolute;
+          left: 135px;
+          top: 9px;
+          width: 120px;
+          height: 26px;
+          border-radius: 14px;
+          background: #0b1416;
+          z-index: 6;
+        }
+
+        .d-plate {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 390px;
+          height: 844px;
+          overflow: hidden;
+          background: #f8f9fa;
+        }
+
+        .d-shot {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 390px;
+          height: auto;
+          display: block;
+        }
+
+        /* ---------- callout ---------- */
+        .d-callout {
+          position: absolute;
+          right: 468px;
+          display: flex;
+          align-items: center;
+          padding: 15px 26px;
+          background: #ffffff;
+          color: #0b1416;
+          font-size: 23px;
+          font-weight: 900;
+          letter-spacing: -0.01em;
+          white-space: nowrap;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+        }
+
+        #d-callout-1 {
+          top: 300px;
+        }
+        #d-callout-2 {
+          top: 430px;
+        }
+        #d-callout-3 {
+          top: 356px;
+        }
+        #d-callout-4 {
+          top: 262px;
+        }
+      </style>
+
+      <div data-hf-id="hf-j1wo" id="root" data-composition-id="demo" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-acd7" id="d-fields">
+          <div data-hf-id="hf-7mbt" id="d-field-1" class="d-field" data-layout-allow-overflow="true">
+            <div data-hf-id="hf-3yd9" id="d-slab-1" class="d-slab" data-layout-allow-overflow="true"></div>
+          </div>
+          <div data-hf-id="hf-bkfu" id="d-field-2" class="d-field" data-layout-allow-overflow="true">
+            <div data-hf-id="hf-7wha" id="d-slab-2" class="d-slab" data-layout-allow-overflow="true"></div>
+          </div>
+          <div data-hf-id="hf-fijv" id="d-field-3" class="d-field" data-layout-allow-overflow="true">
+            <div data-hf-id="hf-bulb" id="d-slab-3" class="d-slab" data-layout-allow-overflow="true"></div>
+          </div>
+          <div data-hf-id="hf-s12c" id="d-field-4" class="d-field" data-layout-allow-overflow="true">
+            <div data-hf-id="hf-fspc" id="d-slab-4" class="d-slab" data-layout-allow-overflow="true"></div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-k6kp" id="d-ghost" data-layout-ignore="true">01</div>
+
+        <!-- the device holds position while the colour changes behind it -->
+        <div data-hf-id="hf-opfe" id="d-phone-stage" data-layout-allow-overflow="true">
+          <div data-hf-id="hf-x5co" id="d-phone">
+            <div data-hf-id="hf-7ovk" id="d-screen">
+              <div data-hf-id="hf-h6vt" id="d-plate-1" class="d-plate" data-layout-allow-overflow="true">
+                <img data-hf-id="hf-gqdc" id="d-shot-1" class="d-shot" src="assets/screen-user.png" alt="Perfil de panelista">
+              </div>
+              <div data-hf-id="hf-l4zu" id="d-plate-2" class="d-plate" data-layout-allow-overflow="true">
+                <img data-hf-id="hf-y2m3" id="d-shot-2" class="d-shot" src="assets/screen-catalogo.png" alt="Catálogo de pruebas">
+              </div>
+              <div data-hf-id="hf-rapn" id="d-plate-3" class="d-plate" data-layout-allow-overflow="true">
+                <img data-hf-id="hf-pjxn" id="d-shot-3" class="d-shot" src="assets/screen-acreditaciones.png" alt="Certificaciones y acreditaciones">
+              </div>
+              <div data-hf-id="hf-3t84" id="d-plate-4" class="d-plate" data-layout-allow-overflow="true">
+                <img data-hf-id="hf-oaph" id="d-shot-4" class="d-shot" src="assets/screen-home.png" alt="Tablero de paneles">
+              </div>
+              <div data-hf-id="hf-px62" id="d-notch"></div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-g8r4" id="d-callout-1" class="d-callout">Perfil sensorial verificado</div>
+          <div data-hf-id="hf-6lh6" id="d-callout-2" class="d-callout">Cupo reservado al instante</div>
+          <div data-hf-id="hf-blis" id="d-callout-3" class="d-callout">Protocolo ISO 13299</div>
+          <div data-hf-id="hf-510s" id="d-callout-4" class="d-callout">14 paneles realizados</div>
+        </div>
+
+        <div data-hf-id="hf-sjt7" id="d-copy">
+          <div data-hf-id="hf-ldrb" id="d-kicker">El panelista</div>
+
+          <div data-hf-id="hf-w0g8" id="d-seg-1" class="d-seg">
+            <div data-hf-id="hf-8fm4" class="d-num">01 — Registro y perfil</div>
+            <span data-hf-id="hf-0mos" class="d-mask"><span data-hf-id="hf-a243" id="d-l1a" class="d-line">Se da de alta</span></span>
+            <span data-hf-id="hf-xf4k" class="d-mask"><span data-hf-id="hf-q3ch" id="d-l1b" class="d-line d-hi">solo.</span></span>
+            <div data-hf-id="hf-jbxl" id="d-note-1" class="d-note">
+              Alta guiada: datos, preferencias dietéticas y alergias en minutos.
+            </div>
+          </div>
+
+          <div data-hf-id="hf-6vxv" id="d-seg-2" class="d-seg">
+            <div data-hf-id="hf-e87i" class="d-num">02 — Próximas pruebas</div>
+            <span data-hf-id="hf-w87h" class="d-mask"><span data-hf-id="hf-xwao" id="d-l2a" class="d-line">Se agenda</span></span>
+            <span data-hf-id="hf-wmii" class="d-mask"><span data-hf-id="hf-42hp" id="d-l2b" class="d-line d-hi">en un toque.</span></span>
+            <div data-hf-id="hf-89ct" id="d-note-2" class="d-note">
+              Filtra por categoría, sede y recompensa. El cupo se reserva al instante.
+            </div>
+          </div>
+
+          <div data-hf-id="hf-2xtu" id="d-seg-3" class="d-seg">
+            <div data-hf-id="hf-plcb" class="d-num">03 — Certificaciones</div>
+            <span data-hf-id="hf-ym1n" class="d-mask"><span data-hf-id="hf-hwq3" id="d-l3a" class="d-line">Ve las</span></span>
+            <span data-hf-id="hf-z0co" class="d-mask"><span data-hf-id="hf-w4d6" id="d-l3b" class="d-line d-hi">acreditaciones.</span></span>
+            <div data-hf-id="hf-lo0e" id="d-note-3" class="d-note">
+              Protocolos ISO y certificados vigentes, visibles para generar confianza sobre sensolab</div>
+          </div>
+
+          <div data-hf-id="hf-k645" id="d-seg-4" class="d-seg">
+            <div data-hf-id="hf-rc9m" class="d-num">04 — Mis paneles</div>
+            <span data-hf-id="hf-xtfl" class="d-mask"><span data-hf-id="hf-qh1l" id="d-l4a" class="d-line">Sabe dónde</span></span>
+            <span data-hf-id="hf-y7qm" class="d-mask"><span data-hf-id="hf-6uz1" id="d-l4b" class="d-line d-hi">está parado.</span></span>
+            <div data-hf-id="hf-bi3e" id="d-note-4" class="d-note">
+              Paneles realizados, próximas sesiones y estado de cada una.
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-3xg5" id="d-steps">
+          <div data-hf-id="hf-c4v4" id="d-dot-1" class="d-dot"><span data-hf-id="hf-ix61" id="d-dot-fill-1" class="d-dot-fill"></span></div>
+          <div data-hf-id="hf-ksqz" id="d-dot-2" class="d-dot"><span data-hf-id="hf-p2vu" id="d-dot-fill-2" class="d-dot-fill"></span></div>
+          <div data-hf-id="hf-gumy" id="d-dot-3" class="d-dot"><span data-hf-id="hf-t0zv" id="d-dot-fill-3" class="d-dot-fill"></span></div>
+          <div data-hf-id="hf-y2x9" id="d-dot-4" class="d-dot"><span data-hf-id="hf-5jic" id="d-dot-fill-4" class="d-dot-fill"></span></div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+
+          // Scroll travel per screen = captured page height - 844px viewport.
+          const SEGMENTS = [
+            { i: 1, scroll: -700, ghost: "01" },
+            { i: 2, scroll: -740, ghost: "02" },
+            { i: 3, scroll: -1320, ghost: "03" },
+            { i: 4, scroll: -680, ghost: "04" },
+          ];
+          const SEG = 7.5;
+
+          gsap.set(["#d-seg-1", "#d-seg-2", "#d-seg-3", "#d-seg-4"], { autoAlpha: 0 });
+          gsap.set(["#d-plate-2", "#d-plate-3", "#d-plate-4"], { autoAlpha: 0 });
+          gsap.set(
+            ["#d-callout-1", "#d-callout-2", "#d-callout-3", "#d-callout-4"],
+            { autoAlpha: 0 },
+          );
+          gsap.set(["#d-dot-fill-1", "#d-dot-fill-2", "#d-dot-fill-3", "#d-dot-fill-4"], {
+            scaleX: 0,
+          });
+          // Fields 2-4 wait offstage; field 1 wipes in with the act.
+          gsap.set(["#d-field-2", "#d-field-3", "#d-field-4"], { xPercent: -120 });
+
+          // --- phone: hard entrance, then it holds while the colour changes behind it ---
+          tl.fromTo(
+            "#d-phone",
+            { x: 170, rotationY: -20, autoAlpha: 0 },
+            { x: 0, rotationY: -6, autoAlpha: 1, duration: 0.7, ease: "expo.out" },
+            0.12,
+          );
+          tl.to("#d-phone", { rotationY: 6, duration: 14, ease: "sine.inOut" }, 1.2);
+          tl.to("#d-phone", { rotationY: -4, duration: 13, ease: "sine.inOut" }, 15.2);
+          tl.fromTo("#d-phone-stage", { y: 0 }, { y: -20, duration: 28, ease: "sine.inOut" }, 0.8);
+
+          tl.fromTo(
+            "#d-kicker",
+            { x: -18, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.35, ease: "expo.out" },
+            0.2,
+          );
+          tl.fromTo(
+            "#d-steps",
+            { y: 18, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.35, ease: "expo.out" },
+            0.3,
+          );
+
+          SEGMENTS.forEach(function (seg, idx) {
+            const t = idx * SEG;
+            const s = "#d-seg-" + seg.i;
+            const lines = s + " .d-line";
+
+            // --- colour field wipes in BEHIND the phone: the scene changes, the device does not ---
+            tl.fromTo(
+              "#d-field-" + seg.i,
+              { xPercent: -120 },
+              { xPercent: 0, duration: idx === 0 ? 0.45 : 0.5, ease: "expo.out" },
+              t,
+            );
+            // The slab keeps drifting all segment so no frame is ever static.
+            tl.fromTo(
+              "#d-slab-" + seg.i,
+              { x: 70 },
+              { x: -50, duration: SEG, ease: "sine.inOut" },
+              t + 0.2,
+            );
+
+            // --- screen swap + a real device flick ---
+            if (idx > 0) {
+              tl.to(
+                "#d-plate-" + SEGMENTS[idx - 1].i,
+                { xPercent: -100, autoAlpha: 0, duration: 0.45, ease: "power3.inOut" },
+                t,
+              );
+              tl.fromTo(
+                "#d-plate-" + seg.i,
+                { xPercent: 100, autoAlpha: 1 },
+                { xPercent: 0, autoAlpha: 1, duration: 0.52, ease: "expo.out" },
+                t + 0.03,
+              );
+              tl.to("#d-phone", { scale: 0.968, duration: 0.16, ease: "power2.out" }, t);
+              tl.to("#d-phone", { scale: 1, duration: 0.42, ease: "expo.out" }, t + 0.16);
+            }
+
+            // --- the scroll: the part that sells it ---
+            tl.fromTo(
+              "#d-shot-" + seg.i,
+              { y: 0 },
+              { y: seg.scroll, duration: 5.2, ease: "sine.inOut" },
+              t + 0.95,
+            );
+
+            // --- ghost numeral flips with the segment ---
+            tl.set("#d-ghost", { innerText: seg.ghost }, t + 0.06);
+            tl.fromTo(
+              "#d-ghost",
+              { yPercent: 12, autoAlpha: 0 },
+              { yPercent: 0, autoAlpha: 1, duration: 0.5, ease: "expo.out" },
+              t + 0.08,
+            );
+            tl.to("#d-ghost", { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, t + 6.9);
+
+            // --- copy: number, two masked lines, one note ---
+            tl.set(s, { autoAlpha: 1 }, t + 0.12);
+            tl.fromTo(
+              s + " .d-num",
+              { x: -22, autoAlpha: 0 },
+              { x: 0, autoAlpha: 1, duration: 0.35, ease: "expo.out" },
+              t + 0.15,
+            );
+            tl.fromTo(
+              lines,
+              { yPercent: 105 },
+              { yPercent: 0, duration: 0.46, stagger: 0.09, ease: "expo.out" },
+              t + 0.28,
+            );
+            tl.fromTo(
+              "#d-note-" + seg.i,
+              { x: -26, autoAlpha: 0 },
+              { x: 0, autoAlpha: 1, duration: 0.42, ease: "expo.out" },
+              t + 0.82,
+            );
+
+            // --- callout snaps in beside the phone ---
+            tl.fromTo(
+              "#d-callout-" + seg.i,
+              { xPercent: 12, autoAlpha: 0 },
+              { xPercent: 0, autoAlpha: 1, duration: 0.32, ease: "expo.out" },
+              t + 2.4,
+            );
+            tl.to(
+              "#d-callout-" + seg.i,
+              { xPercent: 8, autoAlpha: 0, duration: 0.26, ease: "power2.in" },
+              t + 5.9,
+            );
+
+            // --- step bar fills across the segment ---
+            tl.fromTo(
+              "#d-dot-fill-" + seg.i,
+              { scaleX: 0 },
+              { scaleX: 1, duration: SEG - 0.3, ease: "none" },
+              t + 0.15,
+            );
+
+            // --- copy snaps out on the cut ---
+            const outAt = idx === SEGMENTS.length - 1 ? t + 6.9 : t + 6.62;
+            tl.to(
+              lines,
+              { yPercent: -105, duration: 0.34, stagger: 0.05, ease: "power3.in" },
+              outAt,
+            );
+            tl.to(
+              [s + " .d-num", "#d-note-" + seg.i],
+              { x: -26, autoAlpha: 0, duration: 0.3, ease: "power3.in" },
+              outAt,
+            );
+            tl.set(s, { autoAlpha: 0 }, outAt + 0.42);
+          });
+
+          // Act hand-off — everything clears fast for the value cards.
+          tl.to("#d-steps", { autoAlpha: 0, duration: 0.28, ease: "power2.in" }, 29.5);
+          tl.to("#d-kicker", { autoAlpha: 0, duration: 0.28, ease: "power2.in" }, 29.5);
+          tl.to(
+            "#d-phone",
+            { x: -110, rotationY: 18, autoAlpha: 0, duration: 0.55, ease: "power3.in" },
+            29.45,
+          );
+
+          // 30.15 — act 3's wipe already covers the frame; clear this one.
+          tl.set(["#d-copy", "#d-steps", "#d-phone-stage", "#d-fields"], { autoAlpha: 0 }, 30.15);
+
+          window.__timelines["demo"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
